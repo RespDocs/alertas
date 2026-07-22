@@ -1,1 +1,46 @@
-
+{
+  "repositorios": [
+    {
+      "patente": "ABCD12",
+      "activo": true,
+      "datos": "https://respdocs.github.io/ABCD12/datos.json",
+      "web": "https://respdocs.github.io/ABCD12/",
+      "github": "https://github.com/RespDocs/ABCD12"
+    },
+    {
+      "patente": "DEMO",
+      "activo": true,
+      "datos": "https://respdocs.github.io/demo/datos.json",
+      "web": "https://respdocs.github.io/demo/",
+      "github": "https://github.com/RespDocs/demo"
+    },
+    {
+      "patente": "JTYY64",
+      "activo": true,
+      "datos": "https://respdocs.github.io/JTYY64/datos.json",
+      "web": "https://respdocs.github.io/JTYY64/",
+      "github": "https://github.com/RespDocs/JTYY64"
+    },
+    {
+      "patente": "JZPL72",
+      "activo": true,
+      "datos": "https://respdocs.github.io/JZPL72/datos.json",
+      "web": "https://respdocs.github.io/JZPL72/",
+      "github": "https://github.com/RespDocs/JZPL72"
+    },
+    {
+      "patente": "RWPC17",
+      "activo": true,
+      "datos": "https://respdocs.github.io/RWPC17/datos.json",
+      "web": "https://respdocs.github.io/RWPC17/",
+      "github": "https://github.com/RespDocs/RWPC17"
+    },
+    {
+      "patente": "SCPP21",
+      "activo": true,
+      "datos": "https://respdocs.github.io/scpp21/datos.json",
+      "web": "https://respdocs.github.io/scpp21/",
+      "github": "https://github.com/RespDocs/scpp21"
+    }
+  ]
+}
