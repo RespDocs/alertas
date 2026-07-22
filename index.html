@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>RespDocs Administración</title>
 
 <style>
 
 :root{
+
     --bg:#f5f5f5;
     --card:#ffffff;
     --text:#222;
+
     --shadow:0 4px 10px rgba(0,0,0,.08);
 
     --green:#2e7d32;
     --yellow:#f9a825;
     --red:#c62828;
     --blue:#1976d2;
+
 }
 
 @media(prefers-color-scheme:dark){
@@ -28,6 +34,7 @@
     --bg:#121212;
     --card:#1f1f1f;
     --text:#eeeeee;
+
     --shadow:0 4px 10px rgba(0,0,0,.35);
 
 }
@@ -35,17 +42,23 @@
 }
 
 *{
+
     box-sizing:border-box;
+
 }
 
 body{
 
     margin:0;
+
     font-family:system-ui,sans-serif;
+
     background:var(--bg);
+
     color:var(--text);
 
     display:flex;
+
     justify-content:center;
 
 }
@@ -53,7 +66,9 @@ body{
 .app{
 
     width:100%;
+
     max-width:430px;
+
     padding:20px;
 
 }
@@ -61,19 +76,62 @@ body{
 h1{
 
     text-align:center;
-    margin:10px 0;
+
+    margin:10px 0 6px;
 
 }
 
 .subtitulo{
 
     text-align:center;
+
     opacity:.75;
-    margin-bottom:25px;
+
+    margin-bottom:24px;
+
+}
+
+.resumen{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+
+    margin-bottom:24px;
+
+}
+
+.resumen .box{
+
+    background:var(--card);
+
+    border-radius:14px;
+
+    box-shadow:var(--shadow);
+
+    padding:12px;
+
+    text-align:center;
+
+}
+
+.resumen .numero{
+
+    font-size:1.6rem;
+
+    font-weight:bold;
 
 }
 
 .card{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:inherit;
 
     background:var(--card);
 
@@ -86,6 +144,14 @@ h1{
     box-shadow:var(--shadow);
 
     border-left:8px solid;
+
+    transition:.2s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-2px);
 
 }
 
@@ -109,15 +175,15 @@ h1{
 
 .title{
 
-    font-size:1.05rem;
-
     font-weight:700;
 
     margin-bottom:10px;
 
+    font-size:1.05rem;
+
 }
 
-.line{
+.row{
 
     display:flex;
 
@@ -125,29 +191,33 @@ h1{
 
     align-items:center;
 
-    margin-top:10px;
-
     gap:10px;
 
 }
 
-.button-group{
+.buttons{
 
     display:flex;
 
-    gap:10px;
+    gap:8px;
+
+    margin-top:15px;
 
 }
 
 .btn{
 
+    flex:1;
+
+    text-align:center;
+
     text-decoration:none;
+
+    color:#fff;
 
     background:var(--blue);
 
-    color:white;
-
-    padding:8px 14px;
+    padding:9px;
 
     border-radius:8px;
 
@@ -157,15 +227,13 @@ h1{
 
 .section{
 
-    margin-top:28px;
+    margin-top:30px;
 
 }
 
 .section h2{
 
-    margin:0 0 12px;
-
-    font-size:1.15rem;
+    margin:0 0 10px;
 
 }
 
@@ -228,7 +296,7 @@ h1{
 
     background:var(--blue);
 
-    color:white;
+    color:#fff;
 
     cursor:pointer;
 
@@ -250,21 +318,38 @@ h1{
 
 }
 
+small{
+
+    opacity:.70;
+
+}
+
 </style>
 
 </head>
-
 <body>
 
 <div id="loginOverlay">
 
     <div id="loginBox">
 
-        <h2>RespDocs</h2>
+        <h2 id="loginTitle">
 
-        <p><strong>Administración</strong></p>
+            RespDocs
 
-        <p>Ingrese contraseña</p>
+        </h2>
+
+        <p>
+
+            <strong>Administración</strong>
+
+        </p>
+
+        <p>
+
+            Ingrese contraseña
+
+        </p>
 
         <input
             id="password"
@@ -301,94 +386,212 @@ h1{
 
 <div class="app">
 
-<h1>RespDocs</h1>
+<h1>
+
+RespDocs
+
+</h1>
 
 <div class="subtitulo">
 
-Centro de Alertas
+Administración
 
 </div>
 
-<div id="ultimaRevision"></div>
+<div id="ultimaRevision">
+
+<small>
+
+Última actualización
+
+</small>
+
+</div>
+
+<div class="resumen">
+
+<div class="box">
+
+<div class="numero" id="totalVigentes">
+
+0
+
+</div>
+
+🟢<br>
+
+Vigentes
+
+</div>
+
+<div class="box">
+
+<div class="numero" id="totalAlertas">
+
+0
+
+</div>
+
+🟡<br>
+
+Alertas
+
+</div>
+
+<div class="box">
+
+<div class="numero" id="totalVencidos">
+
+0
+
+</div>
+
+🔴<br>
+
+Vencidos
+
+</div>
+
+</div>
 
 <div class="section">
 
-<h2>🔴 Vencidos</h2>
+<h2>
 
-<div id="vencidos"></div>
+🔴 Vencidos
+
+</h2>
+
+<div id="vencidos">
+
+</div>
 
 </div>
 
 <div class="section">
 
-<h2>🟡 Próximos a vencer</h2>
+<h2>
 
-<div id="proximos"></div>
+🟡 Próximos a vencer
+
+</h2>
+
+<div id="proximos">
+
+</div>
 
 </div>
 
 <div class="section">
 
-<h2>🟢 Todo vigente</h2>
+<h2>
 
-<div id="vigentes"></div>
+🟢 Todo vigente
+
+</h2>
+
+<div id="vigentes">
+
+</div>
+
+</div>
+
+<div
+style="
+margin-top:40px;
+text-align:center;
+font-size:.85rem;
+opacity:.70;
+">
+
+RespDocs Administración
 
 </div>
 
 </div>
 
 </div>
+
 <script>
-
 /*==========================================
 CONFIGURACIÓN
 ==========================================*/
 
-const ADMIN_PASSWORD = "julio26";
+const CONFIG={
+
+    titulo:"RespDocs Administración",
+
+    password:"julio26"
+
+};
+
+/*==========================================
+ESTE BLOQUE SERÁ REEMPLAZADO
+AUTOMÁTICAMENTE POR EL WORKER
+==========================================*/
+
+const ALERTAS=[];
 
 /*==========================================
 REFERENCIAS
 ==========================================*/
 
-const loginOverlay = document.getElementById("loginOverlay");
-const siteContent  = document.getElementById("siteContent");
+const pageTitle=document.querySelector("h1");
+const loginTitle=document.getElementById("loginTitle");
 
-const password     = document.getElementById("password");
-const showPassword = document.getElementById("showPassword");
-const btnLogin     = document.getElementById("btnLogin");
-const error        = document.getElementById("error");
+const loginOverlay=document.getElementById("loginOverlay");
+const siteContent=document.getElementById("siteContent");
 
-const ultimaRevision = document.getElementById("ultimaRevision");
+const password=document.getElementById("password");
+const showPassword=document.getElementById("showPassword");
+const btnLogin=document.getElementById("btnLogin");
+const error=document.getElementById("error");
 
-const vencidos = document.getElementById("vencidos");
-const proximos = document.getElementById("proximos");
-const vigentes = document.getElementById("vigentes");
+const ultimaRevision=document.getElementById("ultimaRevision");
+
+const totalVigentes=document.getElementById("totalVigentes");
+const totalAlertas=document.getElementById("totalAlertas");
+const totalVencidos=document.getElementById("totalVencidos");
+
+const vencidos=document.getElementById("vencidos");
+const proximos=document.getElementById("proximos");
+const vigentes=document.getElementById("vigentes");
+
+pageTitle.textContent="RespDocs";
+
+loginTitle.textContent="RespDocs";
 
 /*==========================================
-FECHA ÚLTIMA REVISIÓN
+ÚLTIMA REVISIÓN
 ==========================================*/
 
-const ahora = new Date();
+const ahora=new Date();
 
-ultimaRevision.innerHTML = `
-<div style="
-margin-bottom:20px;
-font-size:.9rem;
-opacity:.75;
-text-align:center;
-">
+ultimaRevision.innerHTML=`
 
-Última revisión<br>
+<small>
+
+Última actualización
+
+</small>
+
+<br><br>
+
+<strong>
 
 ${ahora.toLocaleDateString("es-CL")}
-&nbsp;
-${ahora.toLocaleTimeString("es-CL",{
-hour:"2-digit",
-minute:"2-digit"
-})}
 
-</div>
-`;
+</strong>
+
+<br>
+
+${ahora.toLocaleTimeString("es-CL",{
+
+hour:"2-digit",
+
+minute:"2-digit"
+
+})}
 
 /*==========================================
 LOGIN
@@ -397,13 +600,14 @@ LOGIN
 function mostrarPortal(){
 
     loginOverlay.style.display="none";
+
     siteContent.style.display="block";
 
 }
 
 function validarLogin(){
 
-    if(password.value!==ADMIN_PASSWORD){
+    if(password.value!==CONFIG.password){
 
         error.textContent="Contraseña incorrecta";
 
@@ -418,6 +622,8 @@ function validarLogin(){
     sessionStorage.setItem("respdocs_admin","ok");
 
     mostrarPortal();
+
+    render();
 
 }
 
@@ -435,7 +641,7 @@ showPassword.addEventListener("change",()=>{
 
 btnLogin.addEventListener("click",validarLogin);
 
-password.addEventListener("keydown",(e)=>{
+password.addEventListener("keydown",e=>{
 
     if(e.key==="Enter"){
 
@@ -445,59 +651,57 @@ password.addEventListener("keydown",(e)=>{
 
 });
 
-if(sessionStorage.getItem("respdocs_admin")==="ok"){
-
-    mostrarPortal();
-
-}else{
-
-    password.focus();
-
-}
-
 /*==========================================
-PLANTILLAS
+TARJETAS
 ==========================================*/
 
-function tarjetaAlerta(tipo,patente,detalle,web,repo){
+function crearTarjetaAlerta(item){
 
-return `
+    return `
 
-<div class="card ${tipo}">
+<div class="card ${item.color}">
 
-<div class="title">
+    <div class="title">
 
-${patente}
+        ${item.icono} ${item.patente}
 
-</div>
+    </div>
 
-<div>
+    <div>
 
-${detalle}
+        ${item.documento}
 
-</div>
+    </div>
 
-<div class="line">
+    <br>
 
-<div></div>
+    <div>
 
-<div class="button-group">
+        ${item.estado}
 
-<a class="btn" href="${web}" target="_blank">
+    </div>
 
-🌐 Web
+    <div class="buttons">
 
-</a>
+        <a
+            class="btn"
+            href="${item.web}"
+            target="_blank">
 
-<a class="btn" href="${repo}" target="_blank">
+            🌐 Abrir
 
-📁 Repositorio
+        </a>
 
-</a>
+        <a
+            class="btn"
+            href="${item.repo}"
+            target="_blank">
 
-</div>
+            📁 Repositorio
 
-</div>
+        </a>
+
+    </div>
 
 </div>
 
@@ -505,89 +709,128 @@ ${detalle}
 
 }
 
-function tarjetaVigente(patente){
+function crearTarjetaVigente(item){
 
-return `
+    return `
 
 <div class="card green">
 
-<div class="title">
+    <div class="title">
 
-${patente}
+        🟢 ${item.patente}
 
-</div>
+    </div>
 
-<div>
+    <div>
 
-Todo vigente
+        Todo vigente
 
-</div>
+    </div>
 
 </div>
 
 `;
 
-}
+}`;
 /*==========================================
 RENDER
-(El Worker reemplazará esta sección)
 ==========================================*/
 
-function renderAlertas(data){
+function render(){
 
     vencidos.innerHTML="";
     proximos.innerHTML="";
     vigentes.innerHTML="";
 
-    data.forEach(v=>{
+    let cVencidos=0;
+    let cAlertas=0;
+    let cVigentes=0;
 
-        if(v.estado==="vencido"){
+    ALERTAS.forEach(item=>{
 
-            vencidos.innerHTML+=tarjetaAlerta(
-                "red",
-                v.patente,
-                v.detalle,
-                v.web,
-                v.repo
-            );
+        if(item.estado==="vencido"){
+
+            vencidos.innerHTML+=crearTarjetaAlerta(item);
+
+            cVencidos++;
 
         }
 
-        else if(v.estado==="proximo"){
+        else if(item.estado==="proximo"){
 
-            proximos.innerHTML+=tarjetaAlerta(
-                "yellow",
-                v.patente,
-                v.detalle,
-                v.web,
-                v.repo
-            );
+            proximos.innerHTML+=crearTarjetaAlerta(item);
+
+            cAlertas++;
 
         }
 
         else{
 
-            vigentes.innerHTML+=tarjetaVigente(
-                v.patente
-            );
+            vigentes.innerHTML+=crearTarjetaVigente(item);
+
+            cVigentes++;
 
         }
 
     });
 
+    if(cVencidos===0){
+
+        vencidos.innerHTML=`
+        <div class="card green">
+            <div class="title">
+                ✅ Sin documentos vencidos
+            </div>
+        </div>`;
+    }
+
+    if(cAlertas===0){
+
+        proximos.innerHTML=`
+        <div class="card green">
+            <div class="title">
+                ✅ Sin alertas próximas
+            </div>
+        </div>`;
+    }
+
+    if(cVigentes===0){
+
+        vigentes.innerHTML=`
+        <div class="card yellow">
+            <div class="title">
+                No existen vehículos completamente vigentes
+            </div>
+        </div>`;
+    }
+
+    totalVencidos.textContent=cVencidos;
+    totalAlertas.textContent=cAlertas;
+    totalVigentes.textContent=cVigentes;
+
 }
 
 /*==========================================
-EL WORKER INSERTARÁ AQUÍ
-LAS ALERTAS GENERADAS
+INICIALIZACIÓN
 ==========================================*/
 
-renderAlertas([]);
+if(sessionStorage.getItem("respdocs_admin")==="ok"){
 
-/*==========================================*/
+    mostrarPortal();
+
+    render();
+
+}
+else{
+
+    password.focus();
+
+}
 
 </script>
 
 </body>
 
 </html>
+    
+    
